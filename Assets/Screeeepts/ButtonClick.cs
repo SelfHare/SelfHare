@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonClick : MonoBehaviour
 {
     public Button[] btnArray;
+    public GameObject[] chatBubbles;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,6 @@ public class ButtonClick : MonoBehaviour
             string _name = btn.name;
             btn.onClick.AddListener(() => OnClick(_name));
         }
-
     }
 
     // Update is called once per frame
@@ -24,9 +24,25 @@ public class ButtonClick : MonoBehaviour
         if (name == "Drink")
         {
             Debug.Log("Drink");
+            StartCoroutine(startTimer("Drink"));
         } else if (name == "Food")
         {
             Debug.Log("Food");
+            StartCoroutine(startTimer("Food"));
+        }
+    }
+
+    IEnumerator startTimer(string name) 
+    {
+        foreach (GameObject bubble in chatBubbles)
+        {
+            if (bubble.name == name)
+            {
+                bubble.SetActive(true);
+                yield return new WaitForSeconds(2);
+                bubble.SetActive(false);
+                break;
+            }
         }
     }
 }
