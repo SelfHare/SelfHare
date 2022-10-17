@@ -1,28 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bunny : MonoBehaviour
 {
     public int speed;
+    public Button bun;
+
     private bool walk;
     private Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
     {
+        bun.onClick.AddListener(OnClick);
         walk = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (walk)
-            StartCoroutine(Walking());
-        else if (Input.GetMouseButtonDown(0))
-            Destroy(this.gameObject);
-        else
-            StartCoroutine(Wait());
+        //if (walk)
+        //    StartCoroutine(Walking());
+        //else
+        //    StartCoroutine(Wait());
+    }
+
+    void OnClick()
+    {
+        Destroy(this.gameObject);
     }
 
     IEnumerator Walking()
