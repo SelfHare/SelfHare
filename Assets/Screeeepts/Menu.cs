@@ -26,13 +26,11 @@ public class Menu : MonoBehaviour
     {
         if (name == "Start")
         {
-            Debug.Log("Start");
             screens[0].SetActive(false);
             screens[1].SetActive(true);
         }
         else if (name == "Credit")
         {
-            Debug.Log("Credit");
             screens[2].SetActive(true);
             foreach(Button btn in btnArray)
             {

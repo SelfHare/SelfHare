@@ -10,11 +10,14 @@ public class Bunny : MonoBehaviour
 
     private bool walk;
     private Vector3 pos;
+    private Animator bun_Animator;
 
     // Start is called before the first frame update
     void Start()
     {
         bun.onClick.AddListener(OnClick);
+        bun_Animator = gameObject.GetComponentInChildren<Animator>();
+        bun_Animator.ResetTrigger("Pet");
         walk = false;
     }
 
@@ -29,7 +32,8 @@ public class Bunny : MonoBehaviour
 
     void OnClick()
     {
-        Destroy(this.gameObject);
+        bun_Animator.SetTrigger("Pet");
+        //Destroy(this.gameObject);
     }
 
     IEnumerator Walking()

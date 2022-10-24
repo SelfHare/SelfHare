@@ -7,10 +7,12 @@ public class ButtonClick : MonoBehaviour
 {
     public Button[] btnArray;
     public GameObject[] chatBubbles;
+    private GameObject myEventSystem;
 
     // Start is called before the first frame update
     void Start()
     {
+        myEventSystem = GameObject.Find("EventSystem");
         foreach (Button btn in btnArray)
         {
             string _name = btn.name;
@@ -30,7 +32,10 @@ public class ButtonClick : MonoBehaviour
             Debug.Log("Food");
             StartCoroutine(startTimer("Food"));
         }
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
+
+
 
     IEnumerator startTimer(string name) 
     {
