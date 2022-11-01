@@ -7,6 +7,7 @@ public class Bunny : MonoBehaviour
 {
     public int speed;
     public Button bun;
+    public GameObject heartPrefab;
 
     private bool walk;
     private Vector3 pos;
@@ -16,8 +17,8 @@ public class Bunny : MonoBehaviour
     void Start()
     {
         bun.onClick.AddListener(OnClick);
-        bun_Animator = gameObject.GetComponentInChildren<Animator>();
-        bun_Animator.ResetTrigger("Pet");
+        //bun_Animator = gameObject.GetComponentInChildren<Animator>();
+        //bun_Animator.ResetTrigger("Pet");
         walk = false;
     }
 
@@ -32,8 +33,17 @@ public class Bunny : MonoBehaviour
 
     void OnClick()
     {
+        StartCoroutine(Clicked());
+    }
+
+    IEnumerator Clicked()
+    {
+        GameObject heart = Instantiate(heartPrefab, new Vector3(-54, 36, 0), Quaternion.Euler(0, 0, 45f)) as GameObject;
+        heart.transform.parent = this.transform;
+        bun_Animator = heart.GetComponent<Animator>();
         bun_Animator.SetTrigger("Pet");
-        //Destroy(this.gameObject);
+        yield return new WaitForSeconds(1);
+        Destroy(heart);
     }
 
     IEnumerator Walking()
