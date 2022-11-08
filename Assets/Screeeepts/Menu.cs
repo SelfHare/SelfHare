@@ -9,6 +9,8 @@ public class Menu : MonoBehaviour
     public Button closeCredits;
     public GameObject[] screens;
 
+    private bool quit = false;
+
     void Start()
     {
         screens[0].SetActive(true);
@@ -41,6 +43,7 @@ public class Menu : MonoBehaviour
         else if (name == "Exit")
         {
             Debug.Log("Exit");
+            quit = true;
             Application.Quit();
         } else if (name == "Close")
         {
@@ -50,10 +53,15 @@ public class Menu : MonoBehaviour
             {
                 btn.interactable = true;
             }
-        } else if (name == "Menu")
+        } else if (name == "MenuBtn")
         {
             screens[1].SetActive(false);
             screens[0].SetActive(true);
         }
+    }
+
+    public bool GetQuit()
+    {
+        return quit;
     }
 }

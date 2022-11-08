@@ -23,24 +23,17 @@ public class ButtonClick : MonoBehaviour
             pop_Animators[i] = chatBubbles[i].GetComponentInChildren<Animator>();
             pop_Animators[i].ResetTrigger("Pop");
         }
-        
-        /*foreach (Button btn in btnArray)
-        {
-            string _name = btn.name;
-            btn.onClick.AddListener(() => OnClick(_name));
-        }*/
     }
 
-    // Update is called once per frame
     void OnClick(string name)
     {
-        if (name == "Drink")
+        if (name == "DrinkBtn")
         {
-            Debug.Log("Drink");
+            Debug.Log("DrinkBubble");
             StartCoroutine(StartTimer(0));
-        } else if (name == "Food")
+        } else if (name == "FoodBtn")
         {
-            Debug.Log("Food");
+            Debug.Log("FoodBubble");
             StartCoroutine(StartTimer(1));
         }
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);

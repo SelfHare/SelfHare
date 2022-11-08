@@ -12,6 +12,7 @@ public class Bunny : MonoBehaviour
     private bool walk;
     private Vector3 pos;
     private Animator bun_Animator;
+    private bool heartMade = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +34,15 @@ public class Bunny : MonoBehaviour
 
     void OnClick()
     {
+        Debug.Log("Petting"); // Not working in editor
         StartCoroutine(Clicked());
     }
 
     IEnumerator Clicked()
     {
         GameObject heart = Instantiate(heartPrefab, new Vector3(-54, 36, 0), Quaternion.Euler(0, 0, 45f)) as GameObject;
-        heart.transform.parent = this.transform;
+        heartMade = true;
+        heart.transform.SetParent(this.transform, false);
         bun_Animator = heart.GetComponent<Animator>();
         bun_Animator.SetTrigger("Pet");
         yield return new WaitForSeconds(1);
@@ -68,5 +71,8 @@ public class Bunny : MonoBehaviour
         pos = new Vector3(Random.Range(-330.0f, 330.0f), Random.Range(-180.0f, 180.0f), 0);
         walk = true;
     }
-
+    public bool GetHeart()
+    {
+        return heartMade;
+    }
 }
