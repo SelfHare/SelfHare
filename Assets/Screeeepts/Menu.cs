@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
     public Button[] btnArray;
     public Button closeCredits;
     public GameObject[] screens;
+    public AudioSource popAudio;
 
     private bool quit = false;
 
@@ -26,6 +27,7 @@ public class Menu : MonoBehaviour
 
     void OnClick(string name)
     {
+        popAudio.Play();
         if (name == "Start")
         {
             screens[0].SetActive(false);
