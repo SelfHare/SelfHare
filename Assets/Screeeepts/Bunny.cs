@@ -26,10 +26,7 @@ public class Bunny : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (walk)
-        //    StartCoroutine(Walking());
-        //else
-        //    StartCoroutine(Wait());
+
     }
 
     void OnClick()
@@ -40,6 +37,7 @@ public class Bunny : MonoBehaviour
 
     IEnumerator Clicked()
     {
+        //when the bunny is clicked, it will simulate a "pet" interaction and the bunny will respond with affection
         GameObject heart = Instantiate(heartPrefab, new Vector3(-54, 36, 0), Quaternion.Euler(0, 0, 45f)) as GameObject;
         heartMade = true;
         heart.transform.SetParent(this.transform, false);
@@ -49,30 +47,4 @@ public class Bunny : MonoBehaviour
         Destroy(heart);
     }
 
-    IEnumerator Walking()
-    {
-        //animation.CrossFade("walk");
-        Debug.Log("Walking");
-        var step = speed * Time.deltaTime;
-        while (Vector3.Distance(transform.position, pos) > 0)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, pos, step);
-
-            // "Pause" the routine, render this frame and 
-            // continue from here in the next frame
-            yield return null;
-        }
-    }
-
-    IEnumerator Wait()
-    {
-        //animation.CrossFade("idle");
-        yield return new WaitForSeconds(3);
-        pos = new Vector3(Random.Range(-330.0f, 330.0f), Random.Range(-180.0f, 180.0f), 0);
-        walk = true;
-    }
-    public bool GetHeart()
-    {
-        return heartMade;
-    }
 }

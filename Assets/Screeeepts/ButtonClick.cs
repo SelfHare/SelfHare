@@ -74,6 +74,8 @@ public class ButtonClick : MonoBehaviour
         {
             btn.interactable = true;
         }
+
+        //change rabbit animation enable a different sprite and disable main sprite
     }
 
     IEnumerator Eating()
@@ -90,5 +92,7 @@ public class ButtonClick : MonoBehaviour
         {
             btn.interactable = true;
         }
+
+        //change rabbit animation enable a different sprite and disable main sprite
     }
 }
