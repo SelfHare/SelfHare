@@ -14,6 +14,7 @@ public class ButtonClick : MonoBehaviour
     private GameObject myEventSystem;
     private Animator[] pop_Animators;
     private Animator rabbitAnim;
+    private Animator bunAnim;
     private Image[] bgImages = new Image[2];
     private Image[] btnImages = new Image[2];
 
@@ -24,7 +25,13 @@ public class ButtonClick : MonoBehaviour
         myEventSystem = GameObject.Find("EventSystem");
         pop_Animators = new Animator[btnArray.Length];
         rabbitAnim = GameObject.FindWithTag("Rabbit").GetComponent<Animator>();
+        bunAnim = GameObject.FindWithTag("Bun").GetComponent<Animator>();
+
+        bunAnim.SetBool("Eat", false);
+        bunAnim.SetBool("Drink", false);
         rabbitAnim.SetBool("Eat", false);
+        rabbitAnim.SetBool("Drink", false);
+
         for (int i = 0; i < btnArray.Length; i++)
         {
             string _name = btnArray[i].name;
@@ -68,6 +75,11 @@ public class ButtonClick : MonoBehaviour
         {
             btn.interactable = false;
         }
+        rabbitAnim.SetBool("Drink", true);
+        bunAnim.SetBool("Drink", true);
+        yield return new WaitForSeconds(2);
+        bunAnim.SetBool("Drink", false);
+        rabbitAnim.SetBool("Drink", false);
         pop_Animators[0].SetTrigger("Pop");
         yield return new WaitForSeconds(2);
         foreach (Button btn in btnArray)
@@ -84,10 +96,13 @@ public class ButtonClick : MonoBehaviour
         {
             btn.interactable = false;
         }
-        pop_Animators[1].SetTrigger("Pop");
         rabbitAnim.SetBool("Eat", true);
+        bunAnim.SetBool("Eat", true);
         yield return new WaitForSeconds(2);
+        bunAnim.SetBool("Eat", false);
         rabbitAnim.SetBool("Eat", false);
+        pop_Animators[1].SetTrigger("Pop");
+        yield return new WaitForSeconds(2);
         foreach (Button btn in btnArray)
         {
             btn.interactable = true;

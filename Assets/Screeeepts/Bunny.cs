@@ -9,8 +9,6 @@ public class Bunny : MonoBehaviour
     public Button bun;
     public GameObject heartPrefab;
 
-    private bool walk;
-    private Vector3 pos;
     private Animator bun_Animator;
     private bool heartMade = false;
 
@@ -18,20 +16,11 @@ public class Bunny : MonoBehaviour
     void Start()
     {
         bun.onClick.AddListener(OnClick);
-        //bun_Animator = gameObject.GetComponentInChildren<Animator>();
-        //bun_Animator.ResetTrigger("Pet");
-        walk = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void OnClick()
     {
-        Debug.Log("Petting"); // Not working in editor
+        Debug.Log("Petting");
         StartCoroutine(Clicked());
     }
 

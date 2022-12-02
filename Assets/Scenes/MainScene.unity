@@ -1342,9 +1342,10 @@ GameObject:
   - component: {fileID: 717237206}
   - component: {fileID: 717237205}
   - component: {fileID: 717237208}
+  - component: {fileID: 717237209}
   m_Layer: 5
   m_Name: Bun
-  m_TagString: Untagged
+  m_TagString: Bun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1448,6 +1449,26 @@ MonoBehaviour:
   speed: 0
   bun: {fileID: 537619582}
   heartPrefab: {fileID: 733752619656817747, guid: 7ef1feccbdd529f42923ebd313c9f40b, type: 3}
+--- !u!95 &717237209
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717237203}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3a0c402b76c31a41ad6f96a014877ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &726214180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,6 +3470,7 @@ GameObject:
   - component: {fileID: 2129770672}
   - component: {fileID: 2129770674}
   - component: {fileID: 2129770673}
+  - component: {fileID: 2129770675}
   m_Layer: 5
   m_Name: Rab
   m_TagString: Untagged
@@ -3474,7 +3496,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 156.5041, y: 236.5265}
+  m_SizeDelta: {x: 242.2, y: 194.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2129770673
 MonoBehaviour:
@@ -3496,7 +3518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fdbfafc9bfad7264b841843920a7e061, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be28c78f0b3e32949b88338bf3d744e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3514,3 +3536,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129770671}
   m_CullTransparentMesh: 1
+--- !u!95 &2129770675
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129770671}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6544b4570338f1c43baa4c512c4c9976, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
